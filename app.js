@@ -105,7 +105,7 @@ function getCustomerInfo(store) {
 
 function getCookieInfo(store) {
   for (var i = 0; i < hours.length; i++) {
-  store.individualSales[i] = Math.ceil(store.customers[i] * store.cookies);
+  store.individualSales[i] = (Math.ceil(store.customers[i] * store.cookies) + ' Cookies');
   }
 }
 
@@ -156,7 +156,7 @@ console.log('Lima cookies sold for the day: ' + storeFive.individualSales);
 var container = document.getElementById('emerald');
 
 var article = document.createElement('article')
-container.appendChild(article)
+container.appendChild(article) 
 
 var listElement = document.createElement('ul');
 article.appendChild(listElement);
