@@ -4,12 +4,6 @@
 
 var hours = ['6am: ', '7am: ', '8am: ', '9am: ', '10am: ', '11am: ', '12pm: ', '1pm: ', '2pm: ', '3pm: ', '4pm: ', '5pm: ', '6pm: ', '7pm: '];
 
-// function getRandomIntInclusive(min, max) {
-//   min = Math.ceil(min);
-//   max = Math.floor(max);
-//   return Math.floor(Math.random() * (max - min + 1)) + min; //The maximum is inclusive and the minimum is inclusive 
-// }
-
 var storeOne = {
   location : 'Seattle',
   min : 23,
@@ -22,7 +16,6 @@ var storeOne = {
     this.max = Math.floor(this.max);
     return Math.floor(Math.random() * (this.max - this.min + 1)) + this.min;
   }
-
 }
 
 
@@ -86,16 +79,7 @@ var storeFive = {
 
 }
 
-// function something(sumArr) {
-//   var valueHold = 0;
-//   for (var i = 0; i < hours.length; i++){
-//     var innerVar = sum(valueHold, sumArr[i]);
-//     valueHold = innerVar[0];
-//   }
-//   var arrayMsg = `${sumArr[0]},${sumArr[1]},${sumArr[2]} was passed in as an array of numbers, and ${innerVar[0]} is their sum.`;
-//   return [innerVar[0], arrayMsg];
-
-// }
+// var storeLocations = [storeOne, storeTwo, storeThree, storeFour, storeFive];
 
 function getCustomerInfo(store) {
   for (var i = 0; i < hours.length; i++) {
@@ -108,13 +92,6 @@ function getCookieInfo(store) {
   store.individualSales[i] = (Math.ceil(store.customers[i] * store.cookies) + ' Cookies');
   }
 }
-
-// function totalCookies(store) {
-//   for (var i = 0; i < individualSales.length; i++){
-//     var innerVar = sum(valueHold, individualSales[i]);
-//     valueHold = innerVar[0];
-//   }
-// }
 
 //Seattle
 getCustomerInfo(storeOne);
@@ -152,19 +129,95 @@ getCookieInfo(storeFive);
 console.log('Lima cookies sold for the day: ' + storeFive.individualSales);
 
 
-
+// Seattle
 var container = document.getElementById('emerald');
 
-var article = document.createElement('article')
-container.appendChild(article) 
+  var article = document.createElement('article')
+  container.appendChild(article) 
 
-var listElement = document.createElement('ul');
-article.appendChild(listElement);
+  var listElement = document.createElement('ul');
+  article.appendChild(listElement);
 
 
-for (var i = 0; i < storeOne.individualSales.length; i++) {
-  var liElement = document.createElement('li');
-  listElement.appendChild(liElement);
-  var salesOfTheCookie = storeOne.individualSales[i];
-  liElement.textContent = hours[i] + salesOfTheCookie; 
-}
+  for (var i = 0; i < storeOne.individualSales.length; i++) {
+    var liElement = document.createElement('li');
+    listElement.appendChild(liElement);
+    var salesOfTheCookie = storeOne.individualSales[i];
+    liElement.textContent = hours[i] + salesOfTheCookie; 
+  }
+
+//     for (var j = 0; j < hours.length; j++) {
+//       var li = document.createElement('li2');
+//       var cookieSum1 = storeOne.individualSales;
+//       li.textContent = cookieSum1 + ' cookies total.';
+//       listElement.appendChild(li);
+//     }
+
+
+// Tokyo
+var container = document.getElementById('drift');
+
+  var article = document.createElement('article')
+  container.appendChild(article) 
+
+  var listElement = document.createElement('ul');
+  article.appendChild(listElement);
+
+
+  for (var i = 0; i < storeTwo.individualSales.length; i++) {
+    var liElement = document.createElement('li');
+    listElement.appendChild(liElement);
+    var salesOfTheCookie = storeTwo.individualSales[i];
+    liElement.textContent = hours[i] + salesOfTheCookie; 
+  }
+
+// Dubai
+var container = document.getElementById('supercar');
+
+  var article = document.createElement('article')
+  container.appendChild(article) 
+
+  var listElement = document.createElement('ul');
+  article.appendChild(listElement);
+
+
+  for (var i = 0; i < storeThree.individualSales.length; i++) {
+    var liElement = document.createElement('li');
+    listElement.appendChild(liElement);
+    var salesOfTheCookie = storeThree.individualSales[i];
+    liElement.textContent = hours[i] + salesOfTheCookie; 
+  }
+
+// Paris
+var container = document.getElementById('tower');
+
+  var article = document.createElement('article')
+  container.appendChild(article) 
+
+  var listElement = document.createElement('ul');
+  article.appendChild(listElement);
+
+
+  for (var i = 0; i < storeFour.individualSales.length; i++) {
+    var liElement = document.createElement('li');
+    listElement.appendChild(liElement);
+    var salesOfTheCookie = storeFour.individualSales[i];
+    liElement.textContent = hours[i] + salesOfTheCookie; 
+  }
+
+// Lima
+var container = document.getElementById('flute');
+
+  var article = document.createElement('article')
+  container.appendChild(article) 
+
+  var listElement = document.createElement('ul');
+  article.appendChild(listElement);
+
+
+  for (var i = 0; i < storeFive.individualSales.length; i++) {
+    var liElement = document.createElement('li');
+    listElement.appendChild(liElement);
+    var salesOfTheCookie = storeFive.individualSales[i];
+    liElement.textContent = hours[i] + salesOfTheCookie; 
+  }
