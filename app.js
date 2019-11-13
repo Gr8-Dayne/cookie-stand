@@ -1,10 +1,14 @@
-///// Salmon Cookie Deal/////
+/////Salmon Cookie Deal/////
 
-// SEVRAL classmates, TA's, and JB were (not) harmed in the making of this code (but for real helped me out).
+// Several classmates, TA's, and JB were (not) harmed in the making of this code (but for real helped me out).
 
 'use strict';
 
+// "hours" Global Variable
+
 var hours = ['6am ', '7am ', '8am ', '9am ', '10am ', '11am ', '12pm ', '1pm ', '2pm ', '3pm ', '4pm ', '5pm ', '6pm ', '7pm '];
+
+// New Element Function
 
 function addElement(tag, container, text) {
   var element = document.createElement(tag);
@@ -12,6 +16,8 @@ function addElement(tag, container, text) {
   element.textContent = text;
   return element;
 }
+
+// Constructor Function
 
 function CityShop(cityName, minCustomers, maxCustomers, avgCookiesSold) {
   this.name = cityName;
@@ -21,7 +27,11 @@ function CityShop(cityName, minCustomers, maxCustomers, avgCookiesSold) {
   this.sales = [];
 }
 
+// Create Parent Element Reference
+
 var parent = document.getElementById('theDivision');
+
+// Add New CityShops
 
 var stores = [];
 stores.push(new CityShop('Seattle', 23, 65, 6.3));
@@ -30,15 +40,15 @@ stores.push(new CityShop('Dubai', 11, 38, 3.7));
 stores.push(new CityShop('Paris', 20, 38, 6.3));
 stores.push(new CityShop('Lima', 2, 16, 4.6));
 
-// prototype still confuses me
+// Table Render
 
 CityShop.prototype.render = function(container) {
 
     var tableElement = addElement('table', container);
-    addElement('h2', tableElement, this.cityName);
+    addElement('h2', tableElement, this.name);
     
     var tableHeader = addElement('tr', tableElement);
-    addElement('thead', tableHeader, this.name);
+    addElement('thead', tableHeader);
 
     var dataRow = addElement('tr', tableElement);
     addElement('td', dataRow, "Cookies");
@@ -63,11 +73,13 @@ for (var i = 0; i < stores.length; i++) {
 }
 
 CityShop.prototype.getCookieCount = function () {
-    var random = Math.ceil(this.getRandomNum * this.avgCookies);
+    var random = Math.ceil(this.getRandomNum * this.avg);
     return random;
 }
 
 /////Day One Work/////
+
+// var hours = ['6am ', '7am ', '8am ', '9am ', '10am ', '11am ', '12pm ', '1pm ', '2pm ', '3pm ', '4pm ', '5pm ', '6pm ', '7pm '];
 
 // var storeOne = {
 //   location : 'Seattle',
