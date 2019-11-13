@@ -10,9 +10,9 @@ var hours = ['6am ', '7am ', '8am ', '9am ', '10am ', '11am ', '12pm ', '1pm ', 
 
 // New Element Function
 
-function addElement(tag, container, text) {
+function addElement(tag, parent, text) {
   var element = document.createElement(tag);
-  container.appendChild(element);
+  parent.appendChild(element);
   element.textContent = text;
   return element;
 }
@@ -40,32 +40,34 @@ stores.push(new CityShop('Dubai', 11, 38, 3.7));
 stores.push(new CityShop('Paris', 20, 38, 6.3));
 stores.push(new CityShop('Lima', 2, 16, 4.6));
 
+// Prototype
+
+CityShop.prototype.getCookieCount = function () {
+  var random = Math.ceil(this.getRandomNum * this.avg);
+  return random;
+}
+
 // Table Render
 
-CityShop.prototype.render = function(container) {
+CityShop.prototype.render = function(parent) {
 
-    var tableElement = addElement('table', container);
-    addElement('h2', tableElement, this.name);
-    
-    var tableHeader = addElement('tr', tableElement);
-    addElement('thead', tableHeader);
+  var dataRow = addElement('tr', tableElement, this.name);
 
-    var dataRow = addElement('tr', tableElement);
-    addElement('td', dataRow, "Cookies");
+  var total = 0;
 
-    var total = 0;
-
-    // Bane of my exsistance
-
-    for (var i = 0; i < hours.length; i++) {
-        addElement('td', tableHeader, hours[i]);
-        var random = Math.floor(Math.random() * (this.max - this.min)) + this.min;
-        var randoms = Math.ceil(random * this.avg);
-        total += randoms;
-        addElement('td', dataRow, randoms);
-    }
-    addElement('td', dataRow, this.name + " total:  " + total);
+  for (var i = 0; i < hours.length; i++) {
+    var random = Math.floor(Math.random() * (this.max - this.min)) + this.min;
+    var randoms = Math.ceil(random * this.avg);
+    total += randoms;
+      addElement('td', dataRow, randoms);
+  }
+  var tableHeader = addElement('th', tableElement, hours);
+  addElement('tr', dataRow, this.name + " total:  " + total);
 }
+
+var tableElement = addElement('table', parent);
+
+// var tableHeader = addElement('th', tableElement, hours);
 
 for (var i = 0; i < stores.length; i++) {
     var city = stores[i];
