@@ -6,3 +6,6 @@ Salmon Cookies Lab
 
 11/12/2019:
 - Better organized app.js
+
+11/13/2019
+-Edited public-facing page
