@@ -13,3 +13,6 @@ Salmon Cookies Lab
 11/14/2019
 - Created better.js
 - Created 'New Shop' generator
+
+11/15/2019
+- Completed lab 09 requirements
