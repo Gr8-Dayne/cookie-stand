@@ -1,19 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css">
   <title>SALES</title>
 </head>
-<body>
-  
+<body> 
   <header>
     <h1>Daily Sales Report</h1>
   </header>
-  <main id="list">
-    
-  </main>
-
-</body>
+  <main id="list"></main>
+    <div id='formContainer'>
+      <h2>Help us <i>EXPAND!</i></h2>
+      <form id='plannedExpansion'>
+        <form>
+          <label for="location">Location</label>
+          <input type="text" name="location">
+        </form>
+        <form>
+          <label for="minimum">Min Customer</label>
+          <input type="number" name="minimum">
+        </form>
+        <form>
+          <label for="maximum">Max Customer</label>
+          <input type="number" name="maximum">
+        </form>
+        <form>
+          <label for="average">Average Customer per hour</label>
+          <input type="number" step=any name="average">
+        </form>
+        <div>
+        <input type="submit" value="Submit">
+        </div>
+        </form>
+      </div>
+    <span id='introContainer'></span>
+  </body>
 <footer>
     <script src="better.js"></script>
 </footer>
