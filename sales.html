@@ -1,41 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <link rel="stylesheet" href="style.css">
   <title>SALES</title>
 </head>
-<body> 
+
+<body>
   <header>
     <h1>Daily Sales Report</h1>
   </header>
   <main id="list"></main>
-    <div id='formContainer'>
-      <h2>Help us <i>EXPAND!</i></h2>
-      <fieldset id='plannedExpansion'>
-        <form>
-          <label for="place">Location</label>
-          <input type="text" name="place">
-        </form>
-        <form>
-          <label for="minimum">Min Customer</label>
-          <input type="number" name="minimum">
-        </form>
-        <form>
-          <label for="maximum">Max Customer</label>
-          <input type="number" name="maximum">
-        </form>
-        <form>
-          <label for="average">Average Customer per hour</label>
-          <input type="number" step=any name="average">
-        </form>
-        <div>
+  <div id="formContainer">
+    <h2>Help us <i>EXPAND!</i></h2>
+    <fieldset id="plannedExpansion">
+      <form>
+        <label for="place">Location</label>
+        <input type="text" name="place" required>
+
+        <label for="minimum">Min Customer</label>
+        <input type="number" step=".1" name="minimum" required>
+
+        <label for="maximum">Max Customer</label>
+        <input type="number" step=".1" name="maximum" required>
+
+        <label for="average">Average Customer per hour</label>
+        <input type="number" step=".1" name="average" required>
+
         <button type="submit">Submit</button>
-        </div>
-        </fieldset>
-      </div>
-    <span id="introContainer"></span>
-  </body>
+      </form>
+    </fieldset>
+  </div>
+  <span id="introContainer"></span>
+</body>
 <footer>
-    <script src="better.js"></script>
+  <script src="better.js"></script>
 </footer>
+
 </html>

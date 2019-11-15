@@ -81,29 +81,34 @@ function addTableFooter() {
 // the following function was created with assistance from fellow classmates and from stackoverflow research
 
 function deleteaddTableFooter() {
-  addTableFooter.deleteRow(-1);
+  tableElem.deleteRow(-1);
 };
 
 
 // Create new shop
 function newShop(event) {
   event.preventDefault();
-  var place = event.target.place.value;
-  var minimum = event.target.minimum.value;
-  var maximum = event.target.maximum.value;
-  var average = event.target.average.value;
+  // var place = event.target.place.value;
+  // var minimum = event.target.minimum.value;
+  // var maximum = event.target.maximum.value;
+  // var average = event.target.average.value;
 
-  console.log(event);
-  console.log(newShop);
+  console.log(event.target.place.value);
+  console.log(event.target.minimum.value);
+  console.log(event.target.maximum.value);
+  console.log(event.target.average.value);
 
-  var upcomingShop = new TheCity(place, minimum, maximum, average);
+  var upcomingShop = new TheCity(event.target.place.value, event.target.minimum.value, event.target.maximum.value, event.target.average.value);
 
   store.push(upcomingShop);
 
-  // upcomingShop.TheCity();
-  deleteaddTableFooter();
   upcomingShop.render();
+  deleteaddTableFooter();
   event.target.reset();
+  addTableFooter();
+  
+  console.log(event);
+  console.log(newShop);
 };
 
 var form = document.getElementById('plannedExpansion');
