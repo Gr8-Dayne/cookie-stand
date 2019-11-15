@@ -27,8 +27,8 @@ function TheCity(name, minCustomers, maxCustomers, avgSale) {
   this.avgSale = avgSale;
 };
 
-// Cookies bought per hour at [] store
-TheCity.prototype.saleDay = function () {
+// Cookies bought
+TheCity.prototype.daySale = function () {
   var customer = this.maxCustomers - this.minCustomers + 1;
   var rand = Math.floor(Math.random() * customer) + this.minCustomers;
   var sale = Math.ceil(rand * this.avgSale);
@@ -48,7 +48,7 @@ TheCity.prototype.render = function () {
   var trbody = addElement('tr', tbody);
   addElement('th', trbody, this.name);
   for (var i = 0; i < hours.length; i++) {
-    var salesToday = this.saleDay();
+    var salesToday = this.daySale();
     hourTotals[i] += salesToday;
     addElement('td', trbody, salesToday);
   };
@@ -65,6 +65,14 @@ function addTableHeader() {
   addElement('th', tr, 'Daily Total');
 };
 
+addTableHeader();
+var tbody = addElement('tbody', tableElem);
+for (var i = 0; i < store.length; i++) {
+  var storeTotals = 0;
+  store[i].render(body);
+};
+
+// Hourly Total
 function addTableFooter() {
   var tfoot = addElement('tfoot', tableElem);
   var trfoot = addElement('tr', tfoot);
@@ -77,15 +85,41 @@ function addTableFooter() {
   addElement('th', trfoot, overallTotal);
 };
 
-// console.log(store);
-addTableHeader();
-var tbody = addElement('tbody', tableElem);
-for (var i = 0; i < store.length; i++) {
-  var storeTotals = 0;
-  store[i].render(body);
+// the following function was created with assistance from fellow classmates and from stackoverflow research
+
+function deleteaddTableFooter() {
+  addTableFooter.deleteRow(-1);
 };
 
+
+// Create new shop
+function newShop(event) {
+  event.preventDefault();
+  var location = event.target.name.value;
+  var minimum = event.target.minCustomers.value;
+  var maximum = event.target.maxCustomers.value;
+  var average = event.target.avgSale.value;
+
+
+  var upcomingShop = new TheCity(location, minimum, maximum, average);
+
+  upcomingShop.TheCity();
+  deleteaddTableFooter();
+  addTableHeader();
+  addTableFooter();
+};
+
+var form = document.getElementById('plannedExpansion');
+form.addEventListener('submit', newShop);
+
+// When form is submitted, remove tablefooter
+
+// When tablefooter is removed, add submitted form information
+
+// When submitted form information is displayed, addTableFooter
+
+console.log(event)
+console.log(form)
+console.log(newShop)
 console.log(hourTotals);
 addTableFooter();
-
-
