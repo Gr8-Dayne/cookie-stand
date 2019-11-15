@@ -65,13 +65,6 @@ function addTableHeader() {
   addElement('th', tr, 'Daily Total');
 };
 
-addTableHeader();
-var tbody = addElement('tbody', tableElem);
-for (var i = 0; i < store.length; i++) {
-  var storeTotals = 0;
-  store[i].render(body);
-};
-
 // Hourly Total
 function addTableFooter() {
   var tfoot = addElement('tfoot', tableElem);
@@ -95,18 +88,22 @@ function deleteaddTableFooter() {
 // Create new shop
 function newShop(event) {
   event.preventDefault();
-  var location = event.target.name.value;
-  var minimum = event.target.minCustomers.value;
-  var maximum = event.target.maxCustomers.value;
-  var average = event.target.avgSale.value;
+  var place = event.target.place.value;
+  var minimum = event.target.minimum.value;
+  var maximum = event.target.maximum.value;
+  var average = event.target.average.value;
 
+  console.log(event);
+  console.log(newShop);
 
-  var upcomingShop = new TheCity(location, minimum, maximum, average);
+  var upcomingShop = new TheCity(place, minimum, maximum, average);
 
-  upcomingShop.TheCity();
+  store.push(upcomingShop);
+
+  // upcomingShop.TheCity();
   deleteaddTableFooter();
-  addTableHeader();
-  addTableFooter();
+  upcomingShop.render();
+  event.target.reset();
 };
 
 var form = document.getElementById('plannedExpansion');
@@ -118,8 +115,15 @@ form.addEventListener('submit', newShop);
 
 // When submitted form information is displayed, addTableFooter
 
-console.log(event)
-console.log(form)
-console.log(newShop)
+console.log(form);
+
+addTableHeader();
+var tbody = addElement('tbody', tableElem);
+for (var i = 0; i < store.length; i++) {
+  var storeTotals = 0;
+  store[i].render(body);
+};
+
 console.log(hourTotals);
+
 addTableFooter();
