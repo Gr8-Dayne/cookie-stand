@@ -118,8 +118,8 @@ form.addEventListener('submit', newShop);
 
 // When submitted form information is displayed, addTableFooter
 
-console.log(event)
-console.log(form)
-console.log(newShop)
+console.log(event);
+console.log(form);
+console.log(newShop);
 console.log(hourTotals);
 addTableFooter();
