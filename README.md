@@ -16,3 +16,4 @@ Salmon Cookies Lab
 
 11/15/2019
 - Completed lab 09 requirements
+- Finished index page
