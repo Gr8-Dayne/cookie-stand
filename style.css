@@ -1,5 +1,6 @@
 *{
-  background-color: lightslategray;
+  background-color: rgb(154, 181, 207);
+  font-family: Verdana;
 }
 
 h1{
@@ -12,4 +13,16 @@ body{
 
 input{
   color: hotpink;
+}
+
+div{
+  text-align: center;
+}
+
+h2{
+  font-family: Impact, 'Arial Narrow Bold';
+}
+
+h3{
+  font-family: cursive;
 }
